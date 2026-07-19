@@ -1,0 +1,176 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-navbar);
+  height: var(--navbar-height);
+  display: flex;
+  align-items: center;
+  transition: all var(--duration-normal) var(--ease-out);
+  background: transparent;
+}
+
+.scrolled {
+  background: var(--solid-navbar);
+  box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.hidden {
+  transform: translateY(-100%);
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  z-index: 10;
+  transition: transform var(--duration-fast);
+}
+
+.logo:hover {
+  transform: translate(-2px, -2px);
+}
+
+.logoGradient {
+  color: var(--color-text);
+  text-shadow: 3px 3px 0px var(--color-primary);
+}
+
+.logoDot {
+  color: var(--color-accent);
+  font-size: 2rem;
+  line-height: 1;
+}
+
+/* Desktop Nav */
+.desktopNav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.navLink {
+  position: relative;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-body-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: all var(--duration-fast) var(--ease-out);
+  z-index: 1;
+}
+
+.navLink:hover {
+  transform: translate(-2px, -2px);
+  color: var(--color-text);
+}
+
+/* The text color when active is handled by a span or generic rule, 
+   but since the indicator is behind, we might need to ensure contrast */
+.navLink.active {
+  color: white;
+}
+
+.activeIndicator {
+  position: absolute;
+  inset: 0;
+  background: var(--color-primary);
+  border: 2px solid var(--color-text);
+  box-shadow: 3px 3px 0px rgba(0,0,0,1);
+  z-index: -1;
+}
+
+/* Desktop CTA */
+.desktopCta {
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile Toggle */
+.mobileToggle {
+  display: none;
+  color: var(--color-text);
+  z-index: 10;
+  padding: var(--space-2);
+}
+
+/* Mobile Menu */
+.mobileOverlay {
+  position: fixed;
+  inset: 0;
+  z-index: calc(var(--z-navbar) + 1);
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+}
+
+.mobileMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 80%;
+  max-width: 360px;
+  height: 100%;
+  background: var(--color-surface);
+  padding: calc(var(--navbar-height) + var(--space-8)) var(--space-8) var(--space-8);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-2xl);
+}
+
+.mobileNav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  list-style: none;
+}
+
+.mobileNavLink {
+  display: block;
+  padding: var(--space-4) var(--space-4);
+  font-size: var(--text-body-lg);
+  font-weight: 700;
+  color: var(--color-text);
+  text-decoration: none;
+  border: 2px solid transparent;
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.mobileNavLink:hover,
+.mobileNavLink.active {
+  color: white;
+  background: var(--color-primary);
+  border: 2px solid var(--color-text);
+  box-shadow: 4px 4px 0px rgba(0,0,0,1);
+  transform: translate(-2px, -2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .desktopNav,
+  .desktopCta {
+    display: none;
+  }
+
+  .mobileToggle {
+    display: flex;
+  }
+}

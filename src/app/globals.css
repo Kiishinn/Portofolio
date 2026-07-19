@@ -1,0 +1,307 @@
+/* ============================================
+   DESIGN SYSTEM — CSS Variables & Global Styles
+   Portfolio Website
+   ============================================ */
+
+/* === Google Fonts are loaded via next/font in layout.tsx === */
+
+/* ========================
+   1. CSS CUSTOM PROPERTIES
+   ======================== */
+:root {
+  /* --- Colors: Core --- */
+  --color-primary: #4F46E5;
+  --color-primary-light: #6366F1;
+  --color-primary-dark: #4338CA;
+  --color-primary-50: #EEF2FF;
+  --color-primary-100: #E0E7FF;
+  --color-primary-200: #C7D2FE;
+
+  --color-secondary: #7C3AED;
+  --color-secondary-light: #8B5CF6;
+  --color-secondary-dark: #6D28D9;
+  --color-secondary-50: #F5F3FF;
+
+  --color-accent: #06B6D4;
+  --color-accent-light: #22D3EE;
+  --color-accent-dark: #0891B2;
+  --color-accent-50: #ECFEFF;
+
+  /* --- Colors: Neutral --- */
+  --color-bg: #FAFAFC;
+  --color-surface: #FFFFFF;
+  --color-surface-hover: #F8F9FC;
+  --color-border: #E5E7EB;
+  --color-border-light: #F3F4F6;
+  --color-text: #111827;
+  --color-text-secondary: #6B7280;
+  --color-text-tertiary: #9CA3AF;
+
+  /* --- Colors: Semantic --- */
+  --color-success: #22C55E;
+  --color-success-bg: #F0FDF4;
+  --color-warning: #F59E0B;
+  --color-warning-bg: #FFFBEB;
+  --color-danger: #EF4444;
+  --color-danger-bg: #FEF2F2;
+  --color-info: #3B82F6;
+  --color-info-bg: #EFF6FF;
+
+  /* --- Solid Blocks (Previously Gradients) --- */
+  --gradient-primary: var(--color-primary);
+  --gradient-accent: var(--color-accent);
+  --gradient-hero: var(--color-text);
+  --gradient-subtle: var(--color-border-light);
+  --gradient-text: var(--color-text);
+
+  /* --- Typography --- */
+  --font-heading: var(--font-poppins), 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-body: var(--font-inter), 'Inter', system-ui, -apple-system, sans-serif;
+  --font-code: var(--font-jetbrains-mono), 'JetBrains Mono', monospace;
+
+  /* --- Type Scale --- */
+  --text-display: clamp(2.25rem, 5vw, 4.5rem);
+  --text-h1: clamp(1.75rem, 3.5vw, 3rem);
+  --text-h2: clamp(1.5rem, 2.5vw, 2.25rem);
+  --text-h3: clamp(1.25rem, 2vw, 1.75rem);
+  --text-h4: clamp(1.125rem, 1.5vw, 1.5rem);
+  --text-h5: 1.25rem;
+  --text-body-lg: 1.125rem;
+  --text-body: 1rem;
+  --text-body-sm: 0.875rem;
+  --text-caption: 0.75rem;
+  --text-code: 0.875rem;
+
+  /* --- Spacing (4px base) --- */
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.25rem;
+  --space-6: 1.5rem;
+  --space-8: 2rem;
+  --space-10: 2.5rem;
+  --space-12: 3rem;
+  --space-16: 4rem;
+  --space-20: 5rem;
+  --space-24: 6rem;
+  --space-32: 8rem;
+
+  /* --- Border Radius --- */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-2xl: 24px;
+  --radius-3xl: 32px;
+  --radius-full: 999px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 2px 2px 0px rgba(0, 0, 0, 0.9);
+  --shadow-md: 4px 4px 0px rgba(0, 0, 0, 0.9);
+  --shadow-lg: 6px 6px 0px rgba(0, 0, 0, 0.9);
+  --shadow-xl: 8px 8px 0px rgba(0, 0, 0, 0.9);
+  --shadow-2xl: 12px 12px 0px rgba(0, 0, 0, 0.9);
+  --shadow-glow-primary: 4px 4px 0px var(--color-primary-dark);
+  --shadow-glow-accent: 0 0 24px rgba(6, 182, 212, 0.25);
+  --shadow-float: 0 20px 40px rgba(0, 0, 0, 0.08), 0 0 1px rgba(0, 0, 0, 0.05);
+  --shadow-card: 4px 4px 0px rgba(0, 0, 0, 0.9);
+  --shadow-card-hover: 6px 6px 0px var(--color-primary);
+
+  /* --- Flat Illustrative --- */
+  --flat-bg: #FFFFFF;
+  --flat-border: 2px solid var(--color-border);
+  --flat-border-bold: 3px solid var(--color-primary);
+  --solid-navbar: #FFFFFF;
+
+  /* --- Transitions --- */
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+  --duration-slower: 800ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* --- Z-index --- */
+  --z-base: 1;
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-navbar: 1000;
+  --z-modal-overlay: 1100;
+  --z-modal: 1200;
+  --z-toast: 1300;
+  --z-tooltip: 1400;
+
+  /* --- Layout --- */
+  --container-max: 1200px;
+  --page-max: 1440px;
+  --navbar-height: 72px;
+  --section-padding: clamp(3.75rem, 8vw, 7.5rem);
+  --container-padding: clamp(1.25rem, 4vw, 4rem);
+}
+
+/* ========================
+   2. CSS RESET
+   ======================== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-body);
+  line-height: 1.7;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  background-image: radial-gradient(var(--color-border) 1px, transparent 1px);
+  background-size: 24px 24px;
+  overflow-x: hidden;
+  min-height: 100dvh;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-text);
+}
+
+h1 { font-size: var(--text-h1); }
+h2 { font-size: var(--text-h2); }
+h3 { font-size: var(--text-h3); }
+h4 { font-size: var(--text-h4); }
+h5 { font-size: var(--text-h5); }
+
+p {
+  line-height: 1.7;
+  color: var(--color-text-secondary);
+}
+
+/* ========================
+   3. UTILITY CLASSES
+   ======================== */
+
+/* Skip Link for A11y */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: var(--space-4);
+  z-index: 9999;
+  padding: var(--space-3) var(--space-6);
+  background: var(--color-primary);
+  color: white;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: top var(--duration-normal) var(--ease-out);
+}
+
+.skip-link:focus {
+  top: var(--space-4);
+}
+
+/* Container */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Section */
+.section {
+  padding-block: var(--section-padding);
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient Text (Now Solid for Brutalism) */
+.gradient-text {
+  color: var(--color-text);
+  text-shadow: 2px 2px 0px var(--color-primary);
+}
+
+/* Focus Ring */
+.focus-visible:focus-visible,
+*:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================
+   4. SCROLLBAR
+   ======================== */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-tertiary);
+}
+
+/* ========================
+   5. SELECTION
+   ======================== */
+::selection {
+  background: var(--color-primary-200);
+  color: var(--color-primary-dark);
+}

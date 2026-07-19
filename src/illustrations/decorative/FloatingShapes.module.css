@@ -1,0 +1,182 @@
+.shapes {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.shape {
+  position: absolute;
+}
+
+/* Circles */
+.circle1 {
+  width: 60px;
+  height: 60px;
+  border: 4px solid var(--color-primary);
+  border-radius: 50%;
+  top: 15%;
+  right: 12%;
+}
+
+.circle2 {
+  width: 40px;
+  height: 40px;
+  border: 4px solid var(--color-accent);
+  border-radius: 50%;
+  bottom: 25%;
+  left: 8%;
+}
+
+.circle3 {
+  width: 25px;
+  height: 25px;
+  background: var(--color-text);
+  border-radius: 50%;
+  bottom: 15%;
+  right: 15%;
+}
+
+/* Dots */
+.dot1 {
+  width: 10px;
+  height: 10px;
+  background: var(--color-primary);
+  border-radius: 50%;
+  top: 30%;
+  left: 15%;
+}
+
+.dot2 {
+  width: 12px;
+  height: 12px;
+  background: var(--color-secondary);
+  border: 2px solid var(--color-text);
+  border-radius: 50%;
+  top: 60%;
+  right: 18%;
+}
+
+.dot3 {
+  width: 12px;
+  height: 12px;
+  background: var(--color-accent);
+  border: 2px solid var(--color-text);
+  border-radius: 50%;
+  bottom: 30%;
+  right: 35%;
+}
+
+.dot4 {
+  width: 16px;
+  height: 16px;
+  background: var(--color-primary);
+  border: 2px solid var(--color-text);
+  border-radius: 50%;
+  top: 45%;
+  right: 8%;
+}
+
+.dot5 {
+  width: 8px;
+  height: 8px;
+  background: var(--color-text);
+  border-radius: 50%;
+  bottom: 40%;
+  left: 20%;
+}
+
+/* Triangle */
+.triangle {
+  width: 0;
+  height: 0;
+  border-left: 12px solid transparent;
+  border-right: 12px solid transparent;
+  border-bottom: 20px solid var(--color-primary);
+  top: 20%;
+  left: 25%;
+}
+
+.triangle2 {
+  width: 0;
+  height: 0;
+  border-left: 15px solid transparent;
+  border-right: 15px solid transparent;
+  border-top: 25px solid var(--color-accent);
+  bottom: 15%;
+  left: 35%;
+}
+
+/* Square */
+.square1 {
+  width: 25px;
+  height: 25px;
+  border: 4px solid var(--color-secondary);
+  top: 15%;
+  left: 55%;
+}
+
+/* Crosses */
+.cross1 {
+  width: 16px;
+  height: 16px;
+  top: 70%;
+  left: 20%;
+}
+
+.cross1::before,
+.cross1::after {
+  content: '';
+  position: absolute;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+.cross1::before {
+  width: 100%;
+  height: 3px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cross1::after {
+  width: 3px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.cross2 {
+  width: 24px;
+  height: 24px;
+  top: 10%;
+  right: 35%;
+}
+
+.cross2::before,
+.cross2::after {
+  content: '';
+  position: absolute;
+  background: var(--color-text);
+  border-radius: 2px;
+}
+
+.cross2::before {
+  width: 100%;
+  height: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.cross2::after {
+  width: 4px;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+@media (max-width: 768px) {
+  .circle1 { display: none; }
+  .cross1 { display: none; }
+}

@@ -1,0 +1,134 @@
+.testimonials {
+  background: var(--color-surface);
+}
+
+.slider {
+  max-width: 700px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.quoteIcon {
+  color: var(--color-primary-200);
+  opacity: 0.4;
+  margin-bottom: var(--space-4);
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  text-align: center;
+  padding: var(--space-6) var(--space-4);
+  border: 2px solid var(--color-text);
+  box-shadow: 4px 4px 0px rgba(0,0,0,1);
+  background: var(--color-surface);
+}
+
+.text {
+  font-size: var(--text-body-lg);
+  color: var(--color-text);
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: var(--space-6);
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-6);
+}
+
+.starFilled {
+  color: #F59E0B;
+}
+
+.starEmpty {
+  color: var(--color-border);
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+}
+
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 0;
+  background: var(--color-primary);
+  border: 2px solid var(--color-text);
+  box-shadow: 2px 2px 0px rgba(0,0,0,1);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: var(--text-body-sm);
+  font-family: var(--font-heading);
+}
+
+.authorName {
+  font-weight: 600;
+  font-size: var(--text-body);
+  color: var(--color-text);
+}
+
+.authorRole {
+  font-size: var(--text-body-sm);
+  color: var(--color-text-secondary);
+}
+
+/* === Controls === */
+.controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+
+.controlBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 0;
+  color: var(--color-text);
+  background: var(--color-surface);
+  border: 2px solid var(--color-text);
+  box-shadow: 2px 2px 0px rgba(0,0,0,1);
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.controlBtn:hover {
+  color: white;
+  background: var(--color-primary);
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px rgba(0,0,0,1);
+}
+
+.dots {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border);
+  border: none;
+  cursor: pointer;
+  transition: all var(--duration-fast);
+}
+
+.dotActive {
+  background: var(--color-primary);
+  width: 28px;
+  border-radius: var(--radius-full);
+}
