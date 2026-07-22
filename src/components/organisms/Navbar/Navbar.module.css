@@ -83,8 +83,6 @@
   color: var(--color-text);
 }
 
-/* The text color when active is handled by a span or generic rule, 
-   but since the indicator is behind, we might need to ensure contrast */
 .navLink.active {
   color: white;
 }

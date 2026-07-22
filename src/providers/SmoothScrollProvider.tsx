@@ -16,10 +16,13 @@ export function SmoothScrollProvider({ children }: SmoothScrollProviderProps) {
     if (prefersReducedMotion) return;
 
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      lerp: 0.08,
       smoothWheel: true,
+      wheelMultiplier: 1,
     });
+    
+    // Expose lenis globally for programmatic scrolling
+    (window as any).lenis = lenis;
 
     function raf(time: number) {
       lenis.raf(time);

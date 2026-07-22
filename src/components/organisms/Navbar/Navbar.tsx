@@ -1,6 +1,6 @@
 'use client';
 
-import { type FC, useState, useMemo } from 'react';
+import { type FC, useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 import { useScrollDirection } from '@/hooks/useScrollDirection';
@@ -18,7 +18,19 @@ const Navbar: FC = () => {
     () => navLinks.map((link) => link.href.replace('#', '')),
     []
   );
-  const activeSection = useActiveSection(sectionIds);
+  const scrollActiveSection = useActiveSection(sectionIds);
+  
+  // Override active section during smooth scroll so the box flies straight there
+  const [clickedSection, setClickedSection] = useState<string | null>(null);
+  const activeSection = clickedSection || scrollActiveSection;
+
+  // Clear the override once the scroll finishes
+  useEffect(() => {
+    if (clickedSection && scrollActiveSection === clickedSection) {
+      const t = setTimeout(() => setClickedSection(null), 100);
+      return () => clearTimeout(t);
+    }
+  }, [scrollActiveSection, clickedSection]);
 
   const navbarClass = cn(
     styles.navbar,
@@ -28,9 +40,23 @@ const Navbar: FC = () => {
 
   const handleNavClick = (href: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
+    
+    const targetId = href.replace('#', '');
+    setClickedSection(targetId);
+
+    if (typeof window !== 'undefined' && (window as any).lenis) {
+      // Use Lenis for premium smooth scroll with offset for the navbar
+      (window as any).lenis.scrollTo(href, { 
+        offset: -72,
+        duration: 0.8,
+        easing: (t: number) => 1 - Math.pow(1 - t, 4) // easeOutQuart for snappy start
+      });
+    } else {
+      // Fallback
+      const el = document.querySelector(href);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth' });
+      }
     }
   };
 
@@ -78,7 +104,7 @@ const Navbar: FC = () => {
                     <motion.div
                       className={styles.activeIndicator}
                       layoutId="activeSection"
-                      transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                      transition={{ type: 'tween', ease: 'circOut', duration: 0.25 }}
                     />
                   )}
                 </a>
